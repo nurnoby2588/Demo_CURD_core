@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Demo_CURD_core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Demo_CURD_core.Data
 {
@@ -8,5 +9,8 @@ namespace Demo_CURD_core.Data
         {
 
         }
-    }
+        // create Categories table
+        public DbSet<Category> Categories { get; set; }
+
+            }
 }

@@ -10,4 +10,6 @@ namespace Demo_CURD_core.Models
         public string CategoryName { get; set; }
         public double Price { get; set; }
     }
+
+    
 }
