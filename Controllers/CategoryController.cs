@@ -16,5 +16,9 @@ namespace Demo_CURD_core.Controllers
             List<Category> categories = _DbContext.Categories.ToList();
             return View(categories);
         }
+
+        public IActionResult CreateCategory() { 
+        return View();
+        }
     }
 }
