@@ -22,6 +22,11 @@
             <tr>
             <td>@item.CategoryName </td>
             <td>@item.Price </td>
+            <td>
+                <div>
+                        <a class="btn btn-primary" asp-controller="Category" asp-action="EditCategory" asp-route-CategoryID=@item.CategoryID>Edit</a>
+                </div>
+            </td>
             </tr>
         }
         </tbody>
