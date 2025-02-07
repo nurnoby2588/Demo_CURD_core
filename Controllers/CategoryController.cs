@@ -20,5 +20,13 @@ namespace Demo_CURD_core.Controllers
         public IActionResult CreateCategory() { 
         return View();
         }
+        [HttpPost]
+        public IActionResult CreateCategory(Category category)
+        { 
+            
+            _DbContext.Categories.Add(category);
+            _DbContext.SaveChanges();
+            return RedirectToAction("Index","Category"); 
+        }
     }
 }
