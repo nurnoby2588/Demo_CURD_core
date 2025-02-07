@@ -66,7 +66,8 @@ namespace Demo_CURD_core.Controllers
             if (category1 == null) { return NotFound(); }
             return View(category);
         }
-        [HttpPost]
+        // function overling na kora gele amon kore declear kora hoy
+        [HttpPost,ActionName("DeleteCategory")]
         public IActionResult DeleteCategory(int CategoryID)
         {
             Category? obj = _DbContext.Categories.Find(CategoryID);
