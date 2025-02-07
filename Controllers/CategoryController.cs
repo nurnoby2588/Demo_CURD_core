@@ -54,5 +54,32 @@ namespace Demo_CURD_core.Controllers
             }
             return View();
         }
+
+        // Delete
+        public IActionResult DeleteCategory(int? CategoryID)
+        {
+            if (CategoryID == 0 || CategoryID == null) { return NotFound(); }
+            // CatergoryContoller all value in _DBContext
+            Category? category = _DbContext.Categories.Find(CategoryID);
+            // another way find .collum ar jei value r first a match korbe oi value niye asbe.
+            Category? category1 = _DbContext.Categories.FirstOrDefault(c => c.CategoryID == CategoryID);
+            if (category1 == null) { return NotFound(); }
+            return View(category);
+        }
+        [HttpPost]
+        public IActionResult DeleteCategory(int CategoryID)
+        {
+            Category? obj = _DbContext.Categories.Find(CategoryID);
+
+            if (obj == null)
+            {
+                return NotFound();
+                
+            }
+            _DbContext.Categories.Remove(obj);
+            _DbContext.SaveChanges();
+            return RedirectToAction("Index", "Category");
+        }
+
     }
 }
