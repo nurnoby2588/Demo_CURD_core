@@ -1,1 +1,28 @@
-﻿<h1>Categories</h1>
+﻿@model List<Category>
+
+    <div class="row">
+        <div class="col-6"> 
+        <h3 class="">Category List</h3>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Category" asp-action="CreateCategory">Create</a>
+        </div>
+    </div>
+  
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Category Nmae</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.OrderBy(c=>c.Price))
+        {
+            <tr>
+            <td>@item.CategoryName </td>
+            <td>@item.Price </td>
+            </tr>
+        }
+        </tbody>
+    </table>
